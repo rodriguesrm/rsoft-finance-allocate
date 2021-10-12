@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RSoft.Entry.Core.Ports
+namespace RSoft.Allocate.Core.Ports
 {
 
     /// <summary>

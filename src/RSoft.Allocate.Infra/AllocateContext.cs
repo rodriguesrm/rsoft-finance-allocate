@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RSoft.Allocate.Infra.Configurations;
+using RSoft.Allocate.Infra.Tables;
 using RSoft.Lib.Design.Infra.Data;
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -27,7 +29,10 @@ namespace RSoft.Allocate.Infra
 
         protected override void SetTableConfiguration(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new EntryConfiguration());
+            modelBuilder.ApplyConfiguration(new EntryConfiguration());
+            modelBuilder.ApplyConfiguration(new AccrualPeriodConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 
         #endregion
@@ -37,22 +42,22 @@ namespace RSoft.Allocate.Infra
         /// <summary>
         /// Entry dbset
         /// </summary>
-        //public virtual DbSet<Tables.Entry> Entries { get; set; }
+        public virtual DbSet<Entry> Entries { get; set; }
 
         /// <summary>
         /// Accrual periods dbset
         /// </summary>
-        //public virtual DbSet<AccrualPeriod> AccrualPeriods { get; set; }
+        public virtual DbSet<AccrualPeriod> AccrualPeriods { get; set; }
 
         /// <summary>
         /// Categories dbset
         /// </summary>
-        //public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
         /// <summary>
         /// User dbset
         /// </summary>
-        //public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         #endregion
 

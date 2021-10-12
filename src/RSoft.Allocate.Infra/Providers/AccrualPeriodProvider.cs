@@ -1,5 +1,4 @@
-﻿using RSoft.Entry.Core.Ports;
-using RSoft.Allocate.Infra.Extensions;
+﻿using RSoft.Allocate.Infra.Extensions;
 using RSoft.Allocate.Infra.Tables;
 using RSoft.Lib.Design.Exceptions;
 using RSoft.Lib.Design.Infra.Data;
@@ -8,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using AccrualPeriodDomain = RSoft.Allocate.Core.Entities.AccrualPeriod;
+using RSoft.Allocate.Core.Ports;
 
 namespace RSoft.Allocate.Infra.Providers
 {

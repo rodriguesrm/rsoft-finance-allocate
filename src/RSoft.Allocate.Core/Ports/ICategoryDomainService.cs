@@ -2,7 +2,7 @@
 using RSoft.Lib.Design.Domain.Services;
 using System;
 
-namespace RSoft.Entry.Core.Ports
+namespace RSoft.Allocate.Core.Ports
 {
 
     /// <summary>

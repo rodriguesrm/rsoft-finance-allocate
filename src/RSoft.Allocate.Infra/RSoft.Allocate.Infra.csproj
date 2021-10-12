@@ -20,8 +20,4 @@
     <ProjectReference Include="..\RSoft.Allocate.Core\RSoft.Allocate.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Configurations\" />
-  </ItemGroup>
-
 </Project>

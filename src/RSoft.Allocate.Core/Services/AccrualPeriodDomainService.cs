@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using RSoft.Allocate.Core.Entities;
 using RSoft.Allocate.Core.Ports;
-using RSoft.Entry.Core.Ports;
 using RSoft.Lib.Common.Contracts.Web;
 using RSoft.Lib.Design.Domain.Services;
 using System;

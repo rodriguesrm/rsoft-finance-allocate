@@ -34,11 +34,6 @@ namespace RSoft.Allocate.Infra.Tables
         public int Month { get; set; }
 
         /// <summary>
-        /// Opening balance for the period
-        /// </summary>
-        public float OpeningBalance { get; set; }
-
-        /// <summary>
         /// Closed status flag
         /// </summary>
         public bool IsClosed { get; set; }

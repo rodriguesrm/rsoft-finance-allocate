@@ -37,6 +37,12 @@ namespace RSoft.Allocate.Infra.Configurations
 
             #region FKs
 
+            builder.HasOne(o => o.Category)
+                .WithMany(d => d.Entries)
+                .HasForeignKey(fk => fk.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName($"FK_{nameof(Tables.Category)}_{nameof(Tables.Entry)}_{nameof(Tables.Entry.CategoryId)}");
+
             #endregion
 
             #region Indexes

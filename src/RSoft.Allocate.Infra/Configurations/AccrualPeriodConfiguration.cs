@@ -35,10 +35,6 @@ namespace RSoft.Allocate.Infra.Configurations
                 .HasColumnType("tinyint")
                 .IsRequired();
 
-            builder.Property(c => c.OpeningBalance)
-                .HasColumnName(nameof(AccrualPeriod.OpeningBalance))
-                .IsRequired();
-
 
             builder.Property(c => c.IsClosed)
                 .HasColumnName(nameof(AccrualPeriod.IsClosed))

@@ -1,6 +1,7 @@
 ﻿using RSoft.Lib.Common.Contracts.Entities;
 using RSoft.Lib.Design.Infra.Data.Tables;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace RSoft.Allocate.Infra.Tables
@@ -62,6 +63,10 @@ namespace RSoft.Allocate.Infra.Tables
 
         #region Navigation/Lazy
 
+        /// <summary>
+        /// Entries by this category
+        /// </summary>
+        public virtual ICollection<Entry> Entries { get; set; }
 
         #endregion
 
@@ -73,6 +78,7 @@ namespace RSoft.Allocate.Infra.Tables
         private void Initialize()
         {
             IsActive = true;
+            Entries = new HashSet<Entry>();
         }
 
         #endregion

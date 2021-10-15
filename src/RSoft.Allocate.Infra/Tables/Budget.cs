@@ -1,4 +1,5 @@
-﻿using RSoft.Lib.Common.Contracts.Entities;
+﻿using RSoft.Finance.Contracts.Enum;
+using RSoft.Lib.Common.Contracts.Entities;
 using RSoft.Lib.Design.Infra.Data.Tables;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,10 @@ namespace RSoft.Allocate.Infra.Tables
 {
 
     /// <summary>
-    /// Category table entity
+    /// Budget table entity
     /// </summary>
     [ExcludeFromCodeCoverage(Justification = "Class to map database table in EntityFramework")]
-    public class Category : TableIdBase<Guid, Category>, ITable, IActive
+    public class Budget : TableIdBase<Guid, Budget>, ITable
     {
 
         #region Constructors
@@ -19,7 +20,7 @@ namespace RSoft.Allocate.Infra.Tables
         /// <summary>
         /// Create a new table instance
         /// </summary>
-        public Category() : base(Guid.NewGuid())
+        public Budget() : base(Guid.NewGuid())
         {
             Initialize();
         }
@@ -27,8 +28,8 @@ namespace RSoft.Allocate.Infra.Tables
         /// <summary>
         /// Create a new table instance
         /// </summary>
-        /// <param name="id">Table id value</param>
-        public Category(Guid id) : base(id)
+        /// <param name="id">User id value</param>
+        public Budget(Guid id) : base(id)
         {
             Initialize();
         }
@@ -36,11 +37,11 @@ namespace RSoft.Allocate.Infra.Tables
         /// <summary>
         /// Create a new table instance
         /// </summary>
-        /// <param name="id">Table id text</param>
+        /// <param name="id">User id text</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="FormatException"></exception>
         /// <exception cref="OverflowException"></exception>
-        public Category(string id) : base()
+        public Budget(string id) : base()
         {
             Id = new Guid(id);
         }
@@ -50,23 +51,43 @@ namespace RSoft.Allocate.Infra.Tables
         #region Properties
 
         /// <summary>
-        /// Category name
+        /// Transaction type
         /// </summary>
-        public string Name { get; set; }
+        public TransactionTypeEnum TransactionType { get; set; }
 
         /// <summary>
-        /// Indicate if entity is active
+        /// Budget amount value
         /// </summary>
-        public bool IsActive { get; set; }
+        public float Amount { get; set; }
+
+        /// <summary>
+        /// Indicates whether the commitment item is recurring
+        /// </summary>
+        public bool IsRecurrent { get; set; }
+
+        /// <summary>
+        /// Revenue tax type indicator
+        /// </summary>
+        public RevenueTaxTypeEnum? RevenueTaxType { get; set; }
+
+        /// <summary>
+        /// Entry id key value
+        /// </summary>
+        public Guid EntryId { get; set; }
 
         #endregion
 
         #region Navigation/Lazy
 
         /// <summary>
-        /// Entries by this category
+        /// Months of budget item occurrence
         /// </summary>
-        public virtual ICollection<Entry> Entries { get; set; }
+        public virtual ICollection<BudgetMonth> Months { get; set; }
+
+        /// <summary>
+        /// Entry data
+        /// </summary>
+        public Entry Entry { get; set; }
 
         #endregion
 
@@ -77,13 +98,8 @@ namespace RSoft.Allocate.Infra.Tables
         /// </summary>
         private void Initialize()
         {
-            IsActive = true;
-            Entries = new HashSet<Entry>();
+            Months = new HashSet<BudgetMonth>();
         }
-
-        #endregion
-
-        #region Public methods
 
         #endregion
 
